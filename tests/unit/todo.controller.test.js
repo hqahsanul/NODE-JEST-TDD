@@ -24,5 +24,10 @@ describe("TodoController.createTodo", ()=>{
         TodoController.createTodo(req,res,next);
         expect(TodoModel.create).toBeCalledWith(newTodo);
 
+    });
+    it("should return 201 status code", function() {
+        req.body=newTodo;
+        TodoController.createTodo(req,res,next);
+        expect(res._isEndCalled()).toBeTruthy();
     })
 });
